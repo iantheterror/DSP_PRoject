@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image,ExifTags
 
 import os
 
@@ -8,7 +8,7 @@ def resize_images_in_folder(input_folder, output_folder, new_height, nf,counter)
     
     # Loop through all files in the input folder
     for filename in os.listdir(input_folder):
-        if filename.endswith(".jpg"):
+        if filename.endswith((".jpg",".JPG")):
             
             newname = f'{nf}_{counter}.jpg'
             input_path = os.path.join(input_folder, filename)
@@ -17,6 +17,17 @@ def resize_images_in_folder(input_folder, output_folder, new_height, nf,counter)
 
             # Open the image file
             with Image.open(input_path) as img:
+                for orientation in ExifTags.TAGS.keys():
+                    if ExifTags.TAGS[orientation] == 'Orientation':
+                        break
+                exif = dict(img._getexif().items())
+
+                if exif[orientation] == 3:
+                    img = img.rotate(180, expand=True)
+                elif exif[orientation] == 6:
+                    img = img.rotate(270, expand=True)
+                elif exif[orientation] == 8:
+                    img = img.rotate(90, expand=True)
     
                 original_width, original_height = img.size
                 aspect_ratio = original_width / original_height
@@ -27,6 +38,7 @@ def resize_images_in_folder(input_folder, output_folder, new_height, nf,counter)
                 resized_img = img.resize((new_width, new_height), Image.LANCZOS)
                 # Save the resized image to the output path
                 resized_img.save(output_path)
+                counter +=1
 
 if __name__ == "__main__":
     # Input parameters
