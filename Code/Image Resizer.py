@@ -8,7 +8,7 @@ def resize_images_in_folder(input_folder, output_folder, new_height, nf,counter)
     
     # Loop through all files in the input folder
     for filename in os.listdir(input_folder):
-        if filename.endswith(()".jpg",".heic")):
+        if filename.endswith(".jpg"):
             
             newname = f'{nf}_{counter}.jpg'
             input_path = os.path.join(input_folder, filename)
