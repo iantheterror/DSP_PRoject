@@ -16,7 +16,22 @@ val: val\ # val images (relative to 'path') 5000 images
 
 # Classes
 names:
-  0: Nobody
-  1: Cool Nobody
-  2: Bugles
-  3: Big D
+  0: dog
+  1: person
+  2: cat
+  3: tv
+  4: car
+  5: meatballs
+  6: marinara sauce
+  7: tomato soup
+  8: chicken noodle soup
+  9: french onion soup
+  10: chicken breast
+  11: ribs
+  12: pulled pork
+  13: hamburger
+  14: cavity
+  15: Nobody
+  16: Cool Nobody
+  17: Bugles
+  18: Big D
