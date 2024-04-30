@@ -2,7 +2,7 @@ import os
 import shutil
 
 input_folder = "resized_images/"
-label = "tagged_images/label/"
+label = "tagged_images/labels/"
 img="tagged_images/images/"
 counter = 0
 endpath = ""

@@ -2,8 +2,8 @@
 import torch
 import cv2
 
-path = 'C:\\Users\\ianth\\Downloads\\yolov5'
-pathapp = path + '\\runs\\train\\exp14\\weights\\last.pt'
+path = 'C:\\Users\\Living-Room\\Desktop\\Ian\\Track23\\DSP_PRoject\\Code\\yolov5-master'
+pathapp = path + '\\runs\\train\\exp13\\weights\\last.pt'
 #model = torch.hub.load('C:\\Users\\luisa\\Dropbox\\UVMstuff\\AIR lab\\Yolo8_Training\\yolov5', 'last', source = 'local')
 model = torch.hub.load(path, 'custom', path=pathapp, force_reload=True,source='local') 
 
