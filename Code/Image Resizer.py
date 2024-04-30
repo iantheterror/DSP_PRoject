@@ -17,17 +17,17 @@ def resize_images_in_folder(input_folder, output_folder, new_height, nf,counter)
 
             # Open the image file
             with Image.open(input_path) as img:
-                for orientation in ExifTags.TAGS.keys():
+                '''for orientation in ExifTags.TAGS.keys():
                     if ExifTags.TAGS[orientation] == 'Orientation':
                         break
-                exif = dict(img._getexif().items())
+                    exif = dict(img._getexif().items())
 
-                if exif[orientation] == 3:
-                    img = img.rotate(180, expand=True)
-                elif exif[orientation] == 6:
-                    img = img.rotate(270, expand=True)
-                elif exif[orientation] == 8:
-                    img = img.rotate(90, expand=True)
+                    if exif[orientation] == 3:
+                        img = img.rotate(180, expand=True)
+                    elif exif[orientation] == 6:
+                        img = img.rotate(270, expand=True)
+                    elif exif[orientation] == 8:
+                        img = img.rotate(90, expand=True)'''
     
                 original_width, original_height = img.size
                 aspect_ratio = original_width / original_height
@@ -43,7 +43,7 @@ def resize_images_in_folder(input_folder, output_folder, new_height, nf,counter)
 if __name__ == "__main__":
     # Input parameters
     start_counter = 1
-    newfilename = "resized2"
+    newfilename = "resized3"
     input_folder = "original_images/"  # Folder containing input images
     output_folder = "resized_images/"  # Output folder for resized images
     new_height = 640  # New height for the resized images
