@@ -20,7 +20,7 @@ actual_height = cap.get(cv.CAP_PROP_FRAME_HEIGHT)
 
 lowres = [480,480]
 medres = [640,640]
-highres = [1280,720]
+highres = [720,720]
 maxres = [1920,1080]
 override = [0,0]
 print(f"Camera Base Resolution: {actual_width}x{actual_height}")
@@ -49,13 +49,14 @@ elif check == "x":
     cap.set(cv.CAP_PROP_FRAME_WIDTH, actual_width)
     cap.set(cv.CAP_PROP_FRAME_HEIGHT, actual_height)
 elif check == "or":
-    actual_width = input("Set frame Width: ")
-    actual_height = input("Set frame Height: ")
+    actual_width = int(input("Set frame Width: "))
+    actual_height = int(input("Set frame Height: "))
     cap.set(cv.CAP_PROP_FRAME_WIDTH, actual_width)
     cap.set(cv.CAP_PROP_FRAME_HEIGHT, actual_height)
 else:
     print("Resolution left unchanged")
-print(f"Camera Resolution: {actual_width}x{actual_height}")
+print(f'selected Resolution: {actual_width}X{actual_height}')
+print(f"Camera Resolution: {cap.get(cv.CAP_PROP_FRAME_WIDTH)}x{cap.get(cv.CAP_PROP_FRAME_HEIGHT)}")
 
 
 
@@ -75,6 +76,7 @@ while True:
     # Capture frame-by-frame
     ret, frame = cap.read()
 
+
     # Check if the frame is captured successfully
     if not ret:
         print("Error: Couldn't capture frame")
@@ -82,7 +84,7 @@ while True:
     cv.namedWindow('Webcam Feed', cv.WINDOW_NORMAL) 
   
 # Using resizeWindow() 
-    cv.resizeWindow('Webcam Feed', medres[0], medres[1]) 
+    cv.resizeWindow('Webcam Feed', actual_width, actual_height) 
 
     # Display the captured frame
     cv.imshow('Webcam Feed', frame)

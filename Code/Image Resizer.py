@@ -2,7 +2,7 @@ from PIL import Image,ExifTags
 
 import os
 
-def resize_images_in_folder(input_folder, output_folder, new_height, nf,counter):
+def resize_images_in_folder(input_folder, output_folder, height, nf,counter):
     # Ensure output folder exists
     os.makedirs(output_folder, exist_ok=True)
     
@@ -31,8 +31,11 @@ def resize_images_in_folder(input_folder, output_folder, new_height, nf,counter)
     
                 original_width, original_height = img.size
                 aspect_ratio = original_width / original_height
-                size_ratio = original_height/new_height
+                original_max = max(original_height,original_width)
+                size_ratio = original_max/height
+
                 new_width = int(original_width/size_ratio)
+                new_height = int(original_height/size_ratio)
                 print(f'file: {filename} Original Size: {original_height}X{original_width}')
                 print(f'Size Ratio: {size_ratio} Aspect Ratio: {aspect_ratio}  New Size: {new_height}X{new_width}')
                 resized_img = img.resize((new_width, new_height), Image.LANCZOS)
@@ -43,7 +46,7 @@ def resize_images_in_folder(input_folder, output_folder, new_height, nf,counter)
 if __name__ == "__main__":
     # Input parameters
     start_counter = 1
-    newfilename = "resized3"
+    newfilename = "resized4"
     input_folder = "original_images/"  # Folder containing input images
     output_folder = "resized_images/"  # Output folder for resized images
     new_height = 640  # New height for the resized images

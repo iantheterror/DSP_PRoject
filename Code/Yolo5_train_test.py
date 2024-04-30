@@ -2,10 +2,13 @@
 import torch
 import cv2
 
+path = 'C:\\Users\\Living-Room\\Desktop\\Ian\\Track23\\DSP_PRoject\\Code\\yolov5-master'
+pathapp = path + '\\runs\\train\\exp18\\weights\\last.pt'
 #model = torch.hub.load('C:\\Users\\luisa\\Dropbox\\UVMstuff\\AIR lab\\Yolo8_Training\\yolov5', 'last', source = 'local')
-model = torch.hub.load('C:\\Users\\ianth\\Downloads\\yolov5', 'custom', path='C:\\Users\\ianth\\Downloads\\yolov5\\runs\\train\\exp14\\weights\\last.pt', force_reload=True,source='local') 
-
-img = cv2.imread("C:\\Users\\ianth\\Downloads\\yolov5\\test_signs_SEED7.jpg")
+model = torch.hub.load(path, 'custom', path=pathapp, force_reload=True,source='local') 
+photopath = 'C:\\Users\\Living-Room\\Desktop\\Ian\\Track23\\DSP_PRoject\\Code\\tagged_images\\images\\train\\'
+photo = 'resized_9.jpg'
+img = cv2.imread(photopath + photo)
 
 #img = cv2.rotate(img, cv2.ROTATE_180)
 

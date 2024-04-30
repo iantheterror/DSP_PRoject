@@ -6,6 +6,7 @@ label = "tagged_images/labels/"
 img="tagged_images/images/"
 counter = 0
 endpath = ""
+validate = 5  #1 in X
 
 for filename in os.listdir(input_folder):
     if filename.endswith((".txt")):
@@ -14,7 +15,7 @@ for filename in os.listdir(input_folder):
             continue
         else:
             print(filename)
-            if counter % 10 == 0:
+            if counter % validate == 0:
                 endpath = "val/"
             else:
                 endpath = "train/"
