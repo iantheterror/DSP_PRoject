@@ -6,10 +6,10 @@
 # └── datasets
 #     └── coco  ← downloads here (20.1 GB)
 
-#command  python train.py --img 640 --batch 16 --epochs 10 --data TestRun.yaml --weights yolo5s.pt --nosave --cache
+#command  python train.py --img 640 --batch 16 --epochs 10 --data TestRun.yaml --weights yolov5s.pt --nosave --cache
 
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
-path: C:\Users\Living-Room\Desktop\Ian\Track23\DSP_PRoject\Code\tagged_images\images # dataset root dir
+path: C:\Users\Living-Room\Desktop\Ian\Track23\DSP_PRoject\Code\tagged_images\images\ # dataset root dir
 train: train\ # train images (relative to 'path') 118287 images
 val: val\ # val images (relative to 'path') 5000 images
 
