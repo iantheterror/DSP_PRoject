@@ -2,7 +2,7 @@
 import torch
 import cv2
 
-path = 'F:\\Git\\DSP\\DSP_PRoject\\Code\\yolov5-master\\'
+path = 'C:\\Users\\tara\\Documents\\GitHub\\DSP_PRoject\\Code\\yolov5-master'
 pathapp = path + '\\runs\\train\\exp2\\weights\\last.pt'
 
 
