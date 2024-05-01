@@ -9,7 +9,7 @@ endpath = ""
 validate = 5  #1 in X
 
 for filename in os.listdir(input_folder):
-    if filename.endswith((".txt")):
+    if filename.endswith((".jpg")):
         counter +=1
         if filename == "classes.txt":
             continue
@@ -21,17 +21,19 @@ for filename in os.listdir(input_folder):
                 endpath = "train/"
 
             file = os.path.splitext(os.path.basename(filename))[0]
-            photo_name = file + ".jpg"
 
-            img_path = os.path.join(img, endpath, photo_name)
-            txt_path = os.path.join(label, endpath, filename)
+            
+            txt_name = file + ".txt"
+
+            img_path = os.path.join(img, endpath, filename)
+            txt_path = os.path.join(label, endpath, txt_name)
 
             os.makedirs(os.path.dirname(txt_path), exist_ok=True)
             os.makedirs(os.path.dirname(img_path), exist_ok=True)
         # Copy .txt file to label directory
-            shutil.copy(os.path.join(input_folder, filename), txt_path)
+            shutil.copy(os.path.join(input_folder, filename), img_path)
 
         # Copy corresponding .jpg file to images directory
-            shutil.copy(os.path.join(input_folder, photo_name), img_path)
+            shutil.copy(os.path.join(input_folder, txt_name), txt_path)
 
 
