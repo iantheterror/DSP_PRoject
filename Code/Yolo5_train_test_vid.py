@@ -2,6 +2,7 @@
 import torch
 import cv2
 batch = "exp4"
+# exp4 is 10 epoch, exp5 is 50 epoch,  exp6 is the special dataset
 # path = path = 'F:\\Git\\DSP\\DSP_PRoject\\Code\\yolov5-master\\'  #Your File PAth HEre
 path = 'F:\\Git\\DSP\\DSP_PRoject\\Code\\yolov5-master\\'
 pathapp = path + f'\\runs\\train\\{batch}\\weights\\last.pt'
