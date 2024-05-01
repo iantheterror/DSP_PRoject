@@ -1,7 +1,7 @@
 
 import torch
 import cv2
-batch = "exp3"
+batch = "exp4"
 # path = path = 'F:\\Git\\DSP\\DSP_PRoject\\Code\\yolov5-master\\'  #Your File PAth HEre
 path = 'F:\\Git\\DSP\\DSP_PRoject\\Code\\yolov5-master\\'
 pathapp = path + f'\\runs\\train\\{batch}\\weights\\last.pt'
@@ -27,8 +27,11 @@ while True:
         x1, y1 = int(df['xmin'][ind]), int(df['ymin'][ind])
         x2, y2 = int(df['xmax'][ind]), int(df['ymax'][ind])
         label = df['name'][ind]
+        confidence = int(df['confidence'][ind]*100)
+        conf = f'{confidence}'
         cv2.rectangle(img, (x1, y1), (x2,y2), (255, 255, 0), 2)
         cv2.putText(img, label, (x1, y1-5), cv2.FONT_HERSHEY_PLAIN, 2, (255, 255, 0), 2)
+        cv2.putText(img, conf, (x1+100, y1-5), cv2.FONT_HERSHEY_PLAIN, 2, (255, 255, 0), 2)
            
     cv2.imshow('IMAGE', img)
     cv2.waitKey(10)
