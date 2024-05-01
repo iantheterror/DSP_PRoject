@@ -46,7 +46,7 @@ def resize_images_in_folder(input_folder, output_folder, height, nf,counter):
 if __name__ == "__main__":
     # Input parameters
     start_counter = 1
-    newfilename = "resized1"
+    newfilename = "resized76"
     input_folder = "original_images/"  # Folder containing input images
     output_folder = "resized_images/"  # Output folder for resized images
     new_height = 640  # New height for the resized images

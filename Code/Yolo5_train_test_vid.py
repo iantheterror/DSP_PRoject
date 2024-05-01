@@ -28,7 +28,7 @@ while True:
         x2, y2 = int(df['xmax'][ind]), int(df['ymax'][ind])
         label = df['name'][ind]
         confidence = int(df['confidence'][ind]*100)
-        conf = f'{confidence}'
+        conf = f'Confidence: {confidence}%'
         cv2.rectangle(img, (x1, y1), (x2,y2), (255, 255, 0), 2)
         cv2.putText(img, label, (x1, y1-5), cv2.FONT_HERSHEY_PLAIN, 2, (255, 255, 0), 2)
         cv2.putText(img, conf, (x1+100, y1-5), cv2.FONT_HERSHEY_PLAIN, 2, (255, 255, 0), 2)
