@@ -1,7 +1,7 @@
 import os
 
 directory = 'resized_images/'
-N = 2
+N = 1
 files = os.listdir(directory)
 
 for filename in files:
