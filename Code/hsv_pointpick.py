@@ -28,9 +28,9 @@ class HSVAdjustmentApp:
         self.EN = tk.DoubleVar()
         self.EN.set(0)
 
-        self.Hband.set(20)
-        self.Sband.set(20)
-        self.Vband.set(100)
+        self.Hband.set(30)
+        self.Sband.set(30)
+        self.Vband.set(30)
         
         # Set default values
         self.hue_min.set(0)

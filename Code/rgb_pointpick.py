@@ -28,9 +28,9 @@ class RGBAdjustmentApp:
         self.EN = tk.DoubleVar()
         self.EN.set(0)
 
-        self.Rband.set(20)
-        self.Gband.set(20)
-        self.Bband.set(20)
+        self.Rband.set(30)
+        self.Gband.set(30)
+        self.Bband.set(30)
         
         # Set default values
         self.red_min.set(0)
