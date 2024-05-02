@@ -1,7 +1,7 @@
 
 import torch
 import cv2
-batch = "exp4"
+batch = "exp7"
 # exp4 is 10 epoch, exp5 is 50 epoch,  exp6 is the special dataset
 # path = path = 'F:\\Git\\DSP\\DSP_PRoject\\Code\\yolov5-master\\'  #Your File PAth HEre
 path = 'F:\\Git\\DSP\\DSP_PRoject\\Code\\yolov5-master\\'
@@ -30,10 +30,20 @@ while True:
         label = df['name'][ind]
         confidence = int(df['confidence'][ind]*100)
         conf = f'Confidence: {confidence}%'
-        cv2.rectangle(img, (x1, y1), (x2,y2), (255, 255, 0), 2)
-        cv2.putText(img, label, (x1, y1-5), cv2.FONT_HERSHEY_PLAIN, 2, (255, 255, 0), 2)
-        cv2.putText(img, conf, (x1+100, y1-5), cv2.FONT_HERSHEY_PLAIN, 2, (255, 255, 0), 2)
-           
+        if confidence < 50 :
+            
+            cv2.rectangle(img, (x1, y1), (x2,y2), (255, 0, 0), 2)
+            cv2.putText(img, "Low Confidence", (x1, y1-5), cv2.FONT_HERSHEY_PLAIN, 2, (0,0 , 255), 2)
+            cv2.putText(img, conf, (x1+100, y1-5), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
+        elif confidence >= 50 :
+            if confidence >= 70:
+                cv2.rectangle(img, (x1, y1), (x2,y2), (255, 255, 0), 2)
+                cv2.putText(img, label, (x1, y1-5), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
+                cv2.putText(img, conf, (x1+100, y1-5), cv2.FONT_HERSHEY_PLAIN, 2, (0, 255, 0), 2)
+            else:
+                cv2.rectangle(img, (x1, y1), (x2,y2), (255, 255, 0), 2)
+                cv2.putText(img, label, (x1, y1-5), cv2.FONT_HERSHEY_PLAIN, 2, (255, 255, 0), 2)
+                cv2.putText(img, conf, (x1+100, y1-5), cv2.FONT_HERSHEY_PLAIN, 2, (255, 255, 0), 2)
     cv2.imshow('IMAGE', img)
     cv2.waitKey(10)
         
