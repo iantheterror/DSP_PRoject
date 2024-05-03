@@ -6,7 +6,7 @@ import time
 batch = "exp7"
 # exp4 is 10 epoch, exp5 is 50 epoch,  exp6 is the special dataset
 # path = path = 'F:\\Git\\DSP\\DSP_PRoject\\Code\\yolov5-master\\'  #Your File PAth HEre
-path = 'F:\\Git\\DSP\\DSP_PRoject\\Code\\yolov5-master\\'
+path = 'C:\\Users\\tara\\Documents\\GitHub\\DSP_PRoject\\Code\\yolov5-master'
 pathapp = path + f'\\runs\\train\\{batch}\\weights\\last.pt'
 trig_class = 4 # 0: Ian 1: Tara 2: Ruby 3: Stop
 trig_thresh = 70
